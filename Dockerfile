@@ -24,7 +24,7 @@ RUN set -e \
     apt-get -y update \
     #Install extra fonts to use with sld font markers
     apt-get install -y fonts-cantarell lmodern ttf-aenigma ttf-georgewilliams ttf-bitstream-vera ttf-sjfonts tv-fonts \
-        build-essential libapr1-dev libssl-dev default-jdk \
+        build-essential libapr1-dev libssl-dev default-jdk libnetcdf-dev \
     # Set JAVA_HOME to /usr/lib/jvm/default-java and link it to OpenJDK installation
     && ln -s /usr/lib/jvm/java-8-openjdk-amd64 /usr/lib/jvm/default-java \
     && (echo "Yes, do as I say!" | apt-get remove --force-yes login) \
