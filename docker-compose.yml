@@ -4,7 +4,7 @@ services:
    geoserver:
       image: ene-docker.iiasa.ac.at/kartoza-geoserver:${GEOSERVER_VERSION_TAG}
       volumes:
-        - /opt/ene-geoserver/geoserver_data_dir:/opt/geoserver/data_dir
+        - /opt/ene-geoserver-hotspots.iiasa.ac.at/geoserver_data_dir:/opt/geoserver/data_dir
       ports:
         - "8600:8080"
       restart: always
