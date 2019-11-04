@@ -17,6 +17,9 @@ RUN apt-get -y update; apt-get install -y fonts-cantarell lmodern ttf-aenigma tt
     ttf-sjfonts tv-fonts build-essential libapr1-dev libssl-dev  gdal-bin libgdal-java wget zip curl xsltproc certbot \
     certbot  cabextract
 
+## Would you like to keep default Tomcat webapps
+ARG TOMCAT_EXTRAS=false
+
 RUN wget http://ftp.br.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb && \
     dpkg -i ttf-mscorefonts-installer_3.6_all.deb && rm ttf-mscorefonts-installer_3.6_all.deb
 
