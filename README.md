@@ -14,6 +14,10 @@ Building and uploading a new image:
   docker login ene-docker.iiasa.ac.at -u <username>  
   docker push ene-docker.iiasa.ac.at/kartoza-geoserver
 
+To bypass problems with missing headers from the reverse proxy you can try
+to set the proxy base url in the global settings of the web interface, e.g. to
+https://ene-geoserver-hotspots.iiasa.ac.at/geoserver/
+
 -----------------------------------------
 
 # docker-geoserver
