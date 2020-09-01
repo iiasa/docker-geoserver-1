@@ -5,11 +5,8 @@ Fork of https://github.com/kartoza/docker-geoserver with netcdf support added an
 Building and uploading a new image:
 - in a clone of https://github.com/iiasa/kartoza-docker-geoserver
 - ./build.sh # build new image
-- docker-compose up # try running new image
+- docker-compose up # try running new image, accessible via http://localhost:8222/geoserver/
 - docker login --username <username> https://ene-docker.iiasa.ac.at/
-- tag image  
-  docker images  
-  docker tag <new-image-id> ene-docker.iiasa.ac.at/kartoza-geoserver
 - push new image  
   docker login ene-docker.iiasa.ac.at -u <username>  
   docker push ene-docker.iiasa.ac.at/kartoza-geoserver
@@ -17,6 +14,15 @@ Building and uploading a new image:
 To bypass problems with missing headers from the reverse proxy you can try
 to set the proxy base url in the global settings of the web interface, e.g. to
 https://ene-geoserver-hotspots.iiasa.ac.at/geoserver/
+
+To setup geoserver for hotspots-explorer.org:
+- import hotspots layers using [ixmp_server_integration/import_map_layers](https://github.com/iiasa/ixmp_server_integration/blob/master/import_map_layers/import_hotspots.sh)
+- for the place names, the online service "stamen tiles" is used - nothing to do
+- sattelite images: import the lowres sattelite images (satellite-lowres-v1.2-z0-z5.mbtiles) as `geotools_coverage` to the hotspots workspace
+- import the hotspots styles like HS-magma
+
+To enable debugging, go to "Global Settings" and set the log location to
+`/opt/geoserver/data_dir/logs/geoserver.log`.
 
 -----------------------------------------
 

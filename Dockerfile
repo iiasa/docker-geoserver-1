@@ -14,8 +14,8 @@ ARG STABLE_PLUGIN_URL=https://sourceforge.net/projects/geoserver/files/GeoServer
 
 #Install extra fonts to use with sld font markers
 RUN apt-get -y update; apt-get install -y fonts-cantarell lmodern ttf-aenigma ttf-georgewilliams ttf-bitstream-vera \
-    ttf-sjfonts tv-fonts build-essential libapr1-dev libssl-dev  gdal-bin libgdal-java wget zip curl xsltproc certbot \
-    certbot  cabextract
+    ttf-sjfonts tv-fonts build-essential libapr1-dev libssl-dev gdal-bin libgdal-java wget zip curl xsltproc certbot \
+    certbot cabextract
 
 ## Would you like to keep default Tomcat webapps
 ARG TOMCAT_EXTRAS=false
@@ -32,7 +32,7 @@ RUN set -e \
     apt-get install -y fonts-cantarell lmodern ttf-aenigma ttf-georgewilliams ttf-bitstream-vera ttf-sjfonts tv-fonts \
         build-essential libapr1-dev libssl-dev default-jdk libnetcdf-dev \
     # Set JAVA_HOME to /usr/lib/jvm/default-java and link it to OpenJDK installation
-    && ln -s /usr/lib/jvm/java-8-openjdk-amd64 /usr/lib/jvm/default-java \
+    && ln -s /usr/lib/jvm/java-11-openjdk-amd64 /usr/lib/jvm/default-java \
     && (echo "Yes, do as I say!" | apt-get remove --force-yes login) \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
@@ -40,9 +40,10 @@ RUN set -e \
 ENV \
     JAVA_HOME=${JAVA_HOME} \
     STABLE_EXTENSIONS= \
-    COMMUNITY_EXTENSIONS= \
+    COMMUNITY_EXTENSIONS='mbtiles-plugin' \
     DEBIAN_FRONTEND=noninteractive \
     GEOSERVER_DATA_DIR=/opt/geoserver/data_dir \
+    EXISTING_DATA_DIR=true \
     GDAL_DATA=/usr/local/gdal_data \
     LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/apr/lib:/opt/libjpeg-turbo/lib64:/usr/lib:/usr/lib/x86_64-linux-gnu" \
     FOOTPRINTS_DATA_DIR=/opt/footprints_dir \
