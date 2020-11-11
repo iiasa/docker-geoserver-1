@@ -6,7 +6,7 @@ Building and uploading a new image:
 - in a clone of https://github.com/iiasa/kartoza-docker-geoserver
 - ./build.sh # build new image
 - docker-compose up # try running new image, accessible via http://localhost:8222/geoserver/
-- docker login --username <username> https://ene-docker.iiasa.ac.at/
+- docker login --username xyz https://ene-docker.iiasa.ac.at/
 - push new image  
   docker login ene-docker.iiasa.ac.at -u <username>  
   docker push ene-docker.iiasa.ac.at/kartoza-geoserver
