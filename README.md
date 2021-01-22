@@ -1,3 +1,25 @@
+# kartoza-docker-geoserver
+
+Fork of https://github.com/kartoza/docker-geoserver with netcdf support added and some IIASA ENE setup customization.
+
+Building and uploading a new image:
+- in a clone of https://github.com/iiasa/kartoza-docker-geoserver
+- ./build.sh # build new image
+- docker-compose up # try running new image
+- docker login --username <username> https://ene-docker.iiasa.ac.at/
+- tag image  
+  docker images  
+  docker tag <new-image-id> ene-docker.iiasa.ac.at/kartoza-geoserver
+- push new image  
+  docker login ene-docker.iiasa.ac.at -u <username>  
+  docker push ene-docker.iiasa.ac.at/kartoza-geoserver
+
+To bypass problems with missing headers from the reverse proxy you can try
+to set the proxy base url in the global settings of the web interface, e.g. to
+https://ene-geoserver-hotspots.iiasa.ac.at/geoserver/
+
+-----------------------------------------
+
 # docker-geoserver
 
 A simple docker container that runs GeoServer influenced by this docker

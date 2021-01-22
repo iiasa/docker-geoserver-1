@@ -19,4 +19,3 @@
  - The docker project name is defined with the property `COMPOSE_PROJECT_NAME` *it should be different from the previous name* as the old docker volumes might persist which breaks things.
 
  - Updating this repo (merging back into the fork) and rebuilding the docker image should be *reoccuring tasks*.
-
