@@ -9,6 +9,8 @@
  - The data directory location inside the container can be adjusted with `GEOSERVER_DATA_DIR`.
    It will always be exposed on the host system under `./geoserver_data` (for data imports).
 
+  - *both of these directories must exist!!*
+
  - Tomcat will be routed to Port `:8600` by docker.
 
  - To adjust admin credentials, once again edit the `.env` file (`GEOSERVER_ADMIN_USER` and `GEOSERVER_ADMIN_PASSWORD`).
