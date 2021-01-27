@@ -13,24 +13,8 @@ volumes:
       type: 'none'
       o: 'bind'
       device: './geoserver_data'
-  geo-db-data:
 
 services:
-   db:
-      image: kartoza/postgis:${POSTGIS_VERSION_TAG}
-      volumes:
-         - geo-db-data:/var/lib/postgresql
-      ports:
-        - "25434:5432"
-      environment:
-        - POSTGRES_DB=${POSTGRES_DB}
-        - POSTGRES_USER=${POSTGRES_USER}
-        - POSTGRES_PASS=${POSTGRES_PASS}
-        - ALLOW_IP_RANGE=${ALLOW_IP_RANGE}
-      restart: on-failure
-      healthcheck:
-        test: "exit 0"
-
    geoserver:
       image: kartoza/geoserver:${GEOSERVER_VERSION_TAG}
       volumes:
@@ -47,9 +31,6 @@ services:
         - INITIAL_MEMORY=${INITIAL_MEMORY}
         - MAXIMUM_MEMORY=${MAXIMUM_MEMORY}
         - STABLE_EXTENSIONS=${STABLE_EXTENSIONS}
-      depends_on:
-        db:
-          condition: service_healthy
       healthcheck:
         test: curl --fail -s http://localhost:8080/geoserver/web || exit 1
         interval: 1m30s
