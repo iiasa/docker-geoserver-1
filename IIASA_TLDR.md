@@ -2,8 +2,10 @@
 
 ## IIASA specific TLDR
 
- - Extensions can be enabled by editing `.env` (`STABLE_EXTENSIONS=plugin1,plugin2`, a full list can be found in build_data stable_plugins.txt)
-   Extensions will be installed when creating the container (no need to rebuild the image, just `docker-compose up`).
+ - Extensions will be downloaded when present in `build_data/stable_plugins.txt` during the build step. A full list of available can be found in `build_data/stable_plugins_available.txt`
+
+ - Extensions can be enabled by editing `.env` (`STABLE_EXTENSIONS=plugin1,plugin2`)
+   Downloaded extensions will be installed when creating the container (no need to rebuild the image, just `docker-compose up`).
    Extension .jars will always be exposed on the host system under `./geoserver_extensions`, *this is for debugging puposes* (usually you would not have to use this directory since there is automated extension installation).
 
  - The data directory location inside the container can be adjusted with `GEOSERVER_DATA_DIR`.

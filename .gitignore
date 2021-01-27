@@ -11,7 +11,4 @@ btsync-db.env
 
 
 geoserver_data/*
-!geoserver_data/README.md
-
 geoserver_extensions/*
-!geoserver_extensions/README.md
