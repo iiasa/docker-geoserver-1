@@ -16,7 +16,7 @@ volumes:
 
 services:
    geoserver:
-      image: kartoza/geoserver:${GEOSERVER_VERSION_TAG}
+      image: ene-docker.iiasa.ac.at/kartoza-geoserver:${GEOSERVER_VERSION_TAG}
       volumes:
         - geoserver-data:${GEOSERVER_DATA_DIR}
         - geoserver-extensions:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib
