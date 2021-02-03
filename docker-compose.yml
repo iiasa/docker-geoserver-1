@@ -2,7 +2,7 @@ version: '2.1'
 
 services:
    geoserver:
-      image: kartoza/geoserver:${GEOSERVER_VERSION_TAG}
+      image: ene-docker.iiasa.ac.at/kartoza-geoserver:${GEOSERVER_VERSION_TAG}
       volumes:
         - ./geoserver_data:${GEOSERVER_DATA_DIR}
       ports:
