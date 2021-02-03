@@ -1,1 +1,4 @@
 importer-plugin
+netcdf-out-plugin
+netcdf-plugin
+sldservice-plugin

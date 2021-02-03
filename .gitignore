@@ -11,4 +11,5 @@ btsync-db.env
 
 
 geoserver_data/*
-geoserver_extensions/*
+
+.env
