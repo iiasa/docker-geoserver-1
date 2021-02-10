@@ -2,7 +2,7 @@
 
 ## IIASA specific TLDR
 
- - copy `.env.tpl` to `.env` and fill in the proper admin password (`GEOSERVER_ADMIN_PASSWORD`)
+ - copy `.env.tpl` to `.env` and fill in the proper admin password and port (8223=testing, 8222=production) (`GEOSERVER_ADMIN_PASSWORD`, `HOST_SYSTEM_PORT`)
 
  - Extensions will be downloaded when present in `build_data/stable_plugins.txt` during the build step. A full list of available can be found in `build_data/stable_plugins_available.txt`
 

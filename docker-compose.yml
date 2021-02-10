@@ -6,7 +6,7 @@ services:
       volumes:
         - ./geoserver_data:${GEOSERVER_DATA_DIR}
       ports:
-        - "8600:8080"
+        - "${HOST_SYSTEM_PORT}:8080"
       restart: on-failure
       environment:
         - GEOSERVER_DATA_DIR=${GEOSERVER_DATA_DIR}
