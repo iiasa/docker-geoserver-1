@@ -1,17 +1,21 @@
 version: '2.1'
 
 services:
-
    geoserver:
-      image: ene-docker.iiasa.ac.at/kartoza-geoserver:2.15.2
+      image: ene-docker.iiasa.ac.at/kartoza-geoserver:${GEOSERVER_VERSION_TAG}
       volumes:
-        - /opt/ene-geoserver-hotspots.iiasa.ac.at/geoserver_data_dir:/opt/geoserver/data_dir
+        - ./geoserver_data:${GEOSERVER_DATA_DIR}
       ports:
-        - "8222:8080"
-      restart: always
-      env_file:
-        - docker-env/geoserver.env
-      container_name: ene_geoserver
+        - "${HOST_SYSTEM_PORT}:8080"
+      restart: on-failure
+      environment:
+        - GEOSERVER_DATA_DIR=${GEOSERVER_DATA_DIR}
+        - GEOWEBCACHE_CACHE_DIR=${GEOWEBCACHE_CACHE_DIR}
+        - GEOSERVER_ADMIN_PASSWORD=${GEOSERVER_ADMIN_PASSWORD}
+        - GEOSERVER_ADMIN_USER=${GEOSERVER_ADMIN_USER}
+        - INITIAL_MEMORY=${INITIAL_MEMORY}
+        - MAXIMUM_MEMORY=${MAXIMUM_MEMORY}
+        - STABLE_EXTENSIONS=${STABLE_EXTENSIONS}
       healthcheck:
         test: curl --fail -s http://localhost:8080/geoserver/web || exit 1
         interval: 1m30s
