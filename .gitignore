@@ -4,6 +4,7 @@ resources/plugins/*
 !resources/plugins/README.txt
 !resources/overlays/
 resources/overlays/*
+!resources/overlays/usr/
 !resources/overlays/README.txt
 .idea
 btsync-media.env 
